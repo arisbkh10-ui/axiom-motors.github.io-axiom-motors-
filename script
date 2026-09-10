@@ -1,0 +1,27 @@
+// AXIOM MOTORS — interactions de base
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Menu mobile
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
+  // Formulaire de contact (site expérimental : pas de backend, confirmation locale)
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('formNote');
+  if (form && note) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      note.style.display = 'block';
+      note.textContent = 'Merci — ceci est une démo, aucun message n\'a réellement été envoyé. Un vrai formulaire nécessiterait un service comme Formspree ou un petit backend.';
+      form.reset();
+    });
+  }
+
+});
