@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Cars — AXIOM MOTORS</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .fleet{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .car-card{ background: var(--bg); display: flex; flex-direction: column; }
+  .car-card.wide{ grid-column: span 2; flex-direction: row; }
+  .car-photo{ position: relative; overflow: hidden; }
+  .car-card .car-photo img{ width: 100%; height: 100%; object-fit: cover; min-height: 260px; }
+  .car-card.wide .car-photo{ flex: 1.1; }
+  .car-body{ padding: 30px 32px; flex: 1; display: flex; flex-direction: column; }
+  .car-cat{ color: var(--blue); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+  .car-body h3{ font-size: 1.35rem; margin-bottom: 4px; }
+  .car-tag{ color: var(--text-mute); font-size: 0.88rem; margin-bottom: 16px; }
+  .car-body p{ font-size: 0.94rem; margin-bottom: 18px; }
+  .specs{ list-style: none; margin: 0 0 22px 0; padding: 0; display: grid; gap: 6px; }
+  .specs li{ font-size: 0.86rem; color: var(--text-mute); display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6px; }
+  .specs li span:last-child{ color: var(--text); font-weight: 500; }
+  .car-footer{ margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .price{ font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: var(--amber); }
+  .price small{ display:block; color: var(--text-mute); font-family: 'IBM Plex Sans', sans-serif; font-size: 0.72rem; font-weight: 400; }
+
+  @media (max-width: 860px){
+    .fleet{ grid-template-columns: 1fr; }
+    .car-card.wide{ grid-column: span 1; flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">AXIOM<span class="dot">.</span>MOTORS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html" class="active">Our Cars</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow-line">Le catalogue</span>
+    <h1>Cinq modèles, cinq raisons de rouler</h1>
+    <p>De la citadine électrique à l'hypercar à portes papillon, chaque Axiom répond à un usage précis. Tarifs indicatifs, hors options et hors frais de mise à la route.</p>
+  </div>
+</header>
+
+<section style="padding-top: 64px;">
+  <div class="container">
+    <div class="fleet">
+
+      <article class="car-card wide">
+        <div class="car-photo">
+          <img src="https://images.unsplash.com/photo-1760689040816-a3b4a1d53ce6?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="AXIOM VOLT GT, hypercar électrique portes papillon">
+        </div>
+        <div class="car-body">
+          <span class="car-cat">Hypercar électrique</span>
+          <h3>AXIOM VOLT GT</h3>
+          <p class="car-tag">Portes papillon — série showroom</p>
+          <p>Notre vaisseau amiral. Carrosserie en fibre de carbone recyclée, moteur double sur essieu arrière et un châssis pensé aussi bien pour un tour de piste que pour une sortie en ville.</p>
+          <ul class="specs">
+            <li><span>0 à 100 km/h</span><span>2,1 s</span></li>
+            <li><span>Autonomie</span><span>480 km</span></li>
+            <li><span>Puissance</span><span>820 ch</span></li>
+          </ul>
+          <div class="car-footer">
+            <div class="price"><small>À partir de</small>24 900 000 DA</div>
+            <a href="contact.html" class="btn btn-outline">Demander un essai</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-photo">
+          <img src="https://images.unsplash.com/photo-1590521793841-3a64745b2783?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="AXIOM NOVA RS, coupé sportif de nuit">
+        </div>
+        <div class="car-body">
+          <span class="car-cat">Coupé sport hybride</span>
+          <h3>AXIOM NOVA RS</h3>
+          <p class="car-tag">Transmission intégrale</p>
+          <p>Taillé pour les routes de montagne des Hauts Plateaux. Son moteur hybride a été réglé pour conserver un grondement mécanique caractéristique.</p>
+          <ul class="specs">
+            <li><span>Puissance</span><span>420 ch</span></li>
+            <li><span>Boîte</span><span>7 rapports</span></li>
+          </ul>
+          <div class="car-footer">
+            <div class="price"><small>À partir de</small>9 800 000 DA</div>
+            <a href="contact.html" class="btn btn-outline">Demander un essai</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-photo">
+          <img src="https://images.unsplash.com/photo-1651311412165-74141a0d8798?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="AXIOM ION, citadine électrique blanche">
+        </div>
+        <div class="car-body">
+          <span class="car-cat">Citadine électrique</span>
+          <h3>AXIOM ION</h3>
+          <p class="car-tag">Habitacle minimaliste</p>
+          <p>Pensée pour la ville : sobre, silencieuse, avec un habitacle épuré et une recharge compatible avec les bornes rapides du réseau national.</p>
+          <ul class="specs">
+            <li><span>Autonomie</span><span>320 km</span></li>
+            <li><span>Recharge rapide</span><span>20 min</span></li>
+          </ul>
+          <div class="car-footer">
+            <div class="price"><small>À partir de</small>3 400 000 DA</div>
+            <a href="contact.html" class="btn btn-outline">Demander un essai</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-photo">
+          <img src="https://images.unsplash.com/photo-1725199218574-70b40c7aa3c8?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop&amp;crop=left" alt="AXIOM SOLARIS, supercar orange en édition limitée">
+        </div>
+        <div class="car-body">
+          <span class="car-cat">Supercar — édition limitée</span>
+          <h3>AXIOM SOLARIS</h3>
+          <p class="car-tag">50 exemplaires numérotés</p>
+          <p>Série limitée à cinquante exemplaires, chacun livré avec une plaque signée par l'atelier de finition de Sétif.</p>
+          <ul class="specs">
+            <li><span>Puissance</span><span>650 ch</span></li>
+            <li><span>Exemplaires</span><span>50</span></li>
+          </ul>
+          <div class="car-footer">
+            <div class="price"><small>À partir de</small>32 500 000 DA</div>
+            <a href="contact.html" class="btn btn-outline">Demander un essai</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-photo">
+          <img src="https://images.unsplash.com/photo-1615049977061-3297aa104b1e?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="AXIOM SHADOW, berline de luxe noire de nuit">
+        </div>
+        <div class="car-body">
+          <span class="car-cat">Berline de luxe</span>
+          <h3>AXIOM SHADOW</h3>
+          <p class="car-tag">Conduite semi-autonome niveau 3</p>
+          <p>Discrète mais redoutable. Insonorisation active et assistance de conduite pour les longs trajets entre showrooms.</p>
+          <ul class="specs">
+            <li><span>Conduite assistée</span><span>Niveau 3</span></li>
+            <li><span>Insonorisation</span><span>Active</span></li>
+          </ul>
+          <div class="car-footer">
+            <div class="price"><small>À partir de</small>14 200 000 DA</div>
+            <a href="contact.html" class="btn btn-outline">Demander un essai</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2031 Axiom Motors. Site expérimental — concessionnaire fictif.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html">Our Cars</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
