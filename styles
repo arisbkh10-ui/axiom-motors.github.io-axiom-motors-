@@ -1,0 +1,331 @@
+/* =========================================================
+   AXIOM MOTORS — Design system
+   Graphite bleuté + cuivre (statique) + bleu électrique (interactif)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root{
+  --bg: #12151a;
+  --bg-panel: #1b1f27;
+  --bg-panel-2: #21262f;
+  --line: #2a2f39;
+  --text: #eceef1;
+  --text-mute: #8a93a3;
+  --amber: #ff8a3d;
+  --amber-dim: #cc6e2f;
+  --blue: #4c6ef5;
+  --blue-dim: #3a56c4;
+  --radius-s: 2px;
+  --radius-m: 4px;
+  --maxw: 1180px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .wordmark{
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p{ margin: 0 0 1em 0; color: var(--text-mute); max-width: 62ch; }
+a{ color: inherit; }
+img{ display:block; max-width: 100%; }
+
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(18, 21, 26, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-inner{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark{
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.wordmark .dot{ color: var(--amber); }
+
+.nav-links{
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0; padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links a{
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: var(--text-mute);
+  font-size: 0.94rem;
+  font-weight: 500;
+  border-radius: var(--radius-m);
+  transition: color .15s ease, background-color .15s ease;
+}
+.nav-links a:hover{ color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-links a.active{ color: var(--text); }
+.nav-links a.active::after{
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 6px;
+  background: var(--amber);
+  border-radius: 2px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-radius: var(--radius-s);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+
+.btn-primary{
+  background: var(--amber);
+  color: #16110a;
+}
+.btn-primary:hover{ background: #ff9c5c; }
+
+.btn-outline{
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text);
+}
+.btn-outline:hover{ border-color: var(--blue); }
+
+.nav-cta{ flex-shrink: 0; }
+
+.nav-toggle{
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: var(--radius-s);
+  width: 40px; height: 40px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media (max-width: 860px){
+  .nav-links{
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    transform: none;
+    flex-direction: column;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--line);
+    padding: 8px;
+    display: none;
+  }
+  .nav-links.open{ display: flex; }
+  .nav-links a{ padding: 14px 16px; }
+  .nav-toggle{ display: flex; }
+}
+
+/* ---------------------------------------------------------
+   Page hero (used with a modifier per page for background image)
+   --------------------------------------------------------- */
+.hero{
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.hero::before{
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12,14,18,0.55) 0%, rgba(12,14,18,0.35) 35%, rgba(12,14,18,0.92) 100%),
+    linear-gradient(90deg, rgba(12,14,18,0.75) 0%, rgba(12,14,18,0.1) 55%);
+}
+.hero-inner{
+  position: relative;
+  z-index: 2;
+  padding: 0 32px 88px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+}
+.eyebrow-line{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--amber);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+}
+.eyebrow-line::before{
+  content: "";
+  width: 26px; height: 1px;
+  background: var(--amber);
+}
+.hero h1{
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  color: var(--text);
+  max-width: 14ch;
+}
+.hero-desc{
+  margin-top: 22px;
+  max-width: 46ch;
+  color: #d3d7de;
+  font-size: 1.05rem;
+}
+.hero-actions{
+  margin-top: 34px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Page header for interior pages (no photo, just title block) */
+.page-header{
+  padding: 168px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+.page-header h1{ font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
+.page-header p{ margin-top: 16px; font-size: 1.05rem; max-width: 58ch; }
+
+/* ---------------------------------------------------------
+   Stats strip
+   --------------------------------------------------------- */
+.stats{
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-panel);
+}
+.stats-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 40px 0;
+}
+.stat{
+  padding: 0 32px;
+  border-left: 1px solid var(--line);
+}
+.stat:first-child{ border-left: none; padding-left: 0; }
+.stat .num{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.stat .label{ color: var(--text-mute); font-size: 0.92rem; margin-top: 4px; }
+
+@media (max-width: 720px){
+  .stats-grid{ grid-template-columns: 1fr; gap: 24px; }
+  .stat{ border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
+  .stat:first-child{ border-top: none; padding-top: 0; }
+}
+
+/* ---------------------------------------------------------
+   Sections / generic
+   --------------------------------------------------------- */
+section{ padding: 96px 0; }
+.section-head{ margin-bottom: 48px; max-width: 60ch; }
+.section-head h2{ font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.section-head p{ margin-top: 14px; font-size: 1.02rem; }
+
+.pillars{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.pillar{
+  background: var(--bg);
+  padding: 36px 32px;
+}
+.pillar h3{ font-size: 1.15rem; margin-bottom: 12px; }
+.pillar p{ font-size: 0.96rem; margin: 0; }
+.pillar .mark{ color: var(--blue); font-size: 0.82rem; font-weight: 600; margin-bottom: 14px; display:block; }
+
+@media (max-width: 860px){
+  .pillars{ grid-template-columns: 1fr; }
+}
+
+footer{
+  border-top: 1px solid var(--line);
+  padding: 48px 0;
+}
+.footer-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-inner p{ margin: 0; font-size: 0.86rem; color: var(--text-mute); }
+.footer-links{ display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; }
+.footer-links a{ text-decoration: none; color: var(--text-mute); font-size: 0.86rem; }
+.footer-links a:hover{ color: var(--text); }
