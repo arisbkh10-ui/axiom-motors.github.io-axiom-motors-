@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — AXIOM MOTORS</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-grid{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 860px){ .contact-grid{ grid-template-columns: 1fr; } }
+
+  .showroom{
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .showroom:last-child{ border-bottom: 1px solid var(--line); }
+  .showroom h3{ font-size: 1.05rem; margin-bottom: 8px; }
+  .showroom p{ margin: 0; font-size: 0.92rem; }
+  .showroom .meta{ color: var(--text-mute); font-size: 0.86rem; margin-top: 6px; }
+
+  form{ display: grid; gap: 18px; }
+  .field{ display: grid; gap: 8px; }
+  .field label{ font-size: 0.86rem; color: var(--text-mute); }
+  .field input, .field select, .field textarea{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    border-radius: var(--radius-s);
+  }
+  .field textarea{ resize: vertical; min-height: 120px; }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color: var(--blue); }
+  .two-col{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 540px){ .two-col{ grid-template-columns: 1fr; } }
+
+  #formNote{
+    display: none;
+    margin-top: 4px;
+    padding: 14px 16px;
+    border: 1px solid var(--amber);
+    background: rgba(255,138,61,0.08);
+    color: var(--text);
+    font-size: 0.9rem;
+    border-radius: var(--radius-s);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">AXIOM<span class="dot">.</span>MOTORS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html">Our Cars</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow-line">Nous rejoindre</span>
+    <h1>Trois showrooms, un seul interlocuteur</h1>
+    <p>Prenez rendez-vous pour un essai ou posez vos questions. Un conseiller Axiom Motors vous répond sous 48 heures ouvrées.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container contact-grid">
+    <div>
+      <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Nos showrooms</h2>
+      <p style="margin-bottom: 0;">Essais routiers sur rendez-vous, du dimanche au jeudi.</p>
+
+      <div class="showroom">
+        <h3>Axiom Motors — Alger</h3>
+        <p>Route de Cheraga, lot 14, Cheraga, Alger</p>
+        <p class="meta">+213 21 45 12 08 · alger@axiommotors.dz</p>
+      </div>
+      <div class="showroom">
+        <h3>Axiom Motors — Oran</h3>
+        <p>Boulevard Front de Mer, Bir El Djir, Oran</p>
+        <p class="meta">+213 41 33 27 51 · oran@axiommotors.dz</p>
+      </div>
+      <div class="showroom">
+        <h3>Axiom Motors — Sétif</h3>
+        <p>Zone industrielle El Eulma, route nationale 5, Sétif</p>
+        <p class="meta">+213 36 84 09 17 · setif@axiommotors.dz</p>
+      </div>
+    </div>
+
+    <div>
+      <h2 style="font-size: 1.6rem; margin-bottom: 20px;">Demander un essai routier</h2>
+      <form id="contactForm">
+        <div class="two-col">
+          <div class="field">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="showroom">Showroom souhaité</label>
+          <select id="showroom" name="showroom">
+            <option>Alger</option>
+            <option>Oran</option>
+            <option selected>Sétif</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="model">Modèle qui vous intéresse</label>
+          <select id="model" name="model">
+            <option>AXIOM VOLT GT</option>
+            <option>AXIOM NOVA RS</option>
+            <option>AXIOM ION</option>
+            <option>AXIOM SOLARIS</option>
+            <option>AXIOM SHADOW</option>
+            <option>Je ne sais pas encore</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Précisez vos disponibilités ou vos questions..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-self: start;">Envoyer la demande</button>
+        <div id="formNote"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2031 Axiom Motors. Site expérimental — concessionnaire fictif.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html">Our Cars</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
