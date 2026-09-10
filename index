@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXIOM MOTORS — Concessionnaire automobile</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">AXIOM<span class="dot">.</span>MOTORS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html">Our Cars</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<header class="hero" style="background-image: url('https://images.unsplash.com/photo-1760689040816-a3b4a1d53ce6?fm=jpg&amp;q=80&amp;w=2400&amp;auto=format&amp;fit=crop');">
+  <div class="hero-inner">
+    <span class="eyebrow-line">Concessionnaire officiel</span>
+    <h1>AXIOM MOTORS</h1>
+    <p class="hero-desc">Nous concevons et distribuons des véhicules pensés à la frontière entre performance pure et technologie de rupture. Un garage qui ne roule pas au rythme d'aujourd'hui, mais à celui de demain.</p>
+    <div class="hero-actions">
+      <a href="cars.html" class="btn btn-primary">Découvrir la gamme</a>
+      <a href="about.html" class="btn btn-outline">Notre histoire</a>
+    </div>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat">
+      <div class="num">2031</div>
+      <div class="label">Année de fondation, à Sétif</div>
+    </div>
+    <div class="stat">
+      <div class="num">05</div>
+      <div class="label">Modèles au catalogue actuel</div>
+    </div>
+    <div class="stat">
+      <div class="num">03</div>
+      <div class="label">Showrooms — Alger, Oran, Sétif</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Ce qui nous distingue</h2>
+      <p>Chaque véhicule qui sort de nos showrooms répond à trois exigences non négociables.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="mark">Performance</span>
+        <h3>Une mécanique sans compromis</h3>
+        <p>Des châssis développés en soufflerie, des motorisations thermiques, hybrides ou électriques réglées pour la route comme pour la piste.</p>
+      </div>
+      <div class="pillar">
+        <span class="mark">Innovation</span>
+        <h3>Une technologie qui anticipe</h3>
+        <p>Conduite semi-autonome, matériaux composites recyclés, interfaces embarquées pensées pour disparaître derrière l'expérience de conduite.</p>
+      </div>
+      <div class="pillar">
+        <span class="mark">Service</span>
+        <h3>Un accompagnement sur mesure</h3>
+        <p>De l'essai routier à la livraison, un conseiller unique suit votre dossier dans l'un de nos trois showrooms à travers l'Algérie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2031 Axiom Motors. Site expérimental — concessionnaire fictif.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="cars.html">Our Cars</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
